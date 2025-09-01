@@ -383,7 +383,6 @@ export default function Quiz() {
                         <h3 className="text-lg font-semibold">Answer Breakdown</h3>
                         <ol className="space-y-4 list-decimal pl-6">
                             {answers.map((a, i) => {
-                                const isCorrect = a.isCorrect;
                                 return (
                                     <li key={a.questionId} className="space-y-2">
                                         <div className="font-medium">{i + 1}. {a.question}</div>
