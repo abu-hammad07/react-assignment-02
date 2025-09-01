@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.navbar {
+    background-color: #ffffff;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-elements {
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-elements ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-elements ul li:not(:last-child) {
+    margin-right: 40px;
+}
+
+.nav-elements ul a {
+    position: relative;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+    text-decoration: none;
+}
+
+.nav-elements ul a.active {
+    color: #793CFB;
+    font-weight: 600;
+    position: relative;
+}
+
+.nav-elements ul a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #793CFB;
+    transition: width 0.3s ease;
+}
+
+.nav-elements ul a:hover::after,
+.nav-elements ul a.active::after {
+  width: 100%;
+}
+
+.nav-elements ul a:hover{
+    color: #793CFB;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 110;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #2f234f;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger animation when open */
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive - Left-side slide */
+@media (max-width: 768px) {
+    .nav-elements {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: #ffffff;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 20px;
+        z-index: 105;
+    }
+
+    .nav-elements.open {
+        transform: translateX(0);
+    }
+
+    .nav-elements ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-elements ul li {
+        margin: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Overlay when menu is open */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(101, 101, 101, 0.3);
+    z-index: 100;
+}
